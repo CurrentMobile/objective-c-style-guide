@@ -24,17 +24,18 @@ NSString * myString;
 @property (readonly, assign, nonatomic) MXLPullDownViewState viewState;
 ```
 - Define all properties as readonly in the header, unless external readwrite access is required.
-- Provide multi-line comment before each method definition. It should explain the method, then each parameter, then any returned result. E.g.
+- Provide multi-line comment before each method definition. It should explain the method, then each parameter, then any returned result. Use the plugin [VVDocumenter](https://github.com/onevcat/VVDocumenter-Xcode) to automatically build this. E.g.
 
 ```objc
 /**
-    Sets the vertical distance in points from the top of the pulldown to 
-    the content display.
- 
-    @param offset
-    The vertical distance in points to offset the content.
+ *  Calculates whether the the vertical distance from the top of
+ *  the pulldown is significant enough to result in the cell
+ *  being redrawn.
+ * 
+ *  @param offset The vertical distance in points to offset the content.
+ *  @return A BOOL to indicate whether the cell should update, based on top offset.
  */
-- (void)setContentViewOffsetFromTop:(CGFloat)offset;
+- (BOOL)shouldSetContentViewOffsetFromTop:(CGFloat)offset;
 
 ```
 
@@ -79,3 +80,5 @@ typedef NS_ENUM(NSUInteger, MXLAppSwitcherStyle) {
 };
 
 ```
+
+- Favor dot-syntax over bracket-based message passing.
