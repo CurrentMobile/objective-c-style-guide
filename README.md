@@ -82,3 +82,4 @@ typedef NS_ENUM(NSUInteger, MXLAppSwitcherStyle) {
 ```
 
 - Favor dot-syntax over bracket-based message passing.
+- All methods should be defined somewhere. Either publicly in the header, or privately as an interface extension in the .m file. The definition of the method is where the documenting comment should be located.
